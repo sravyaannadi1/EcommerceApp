@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/_8dp"
+    android:padding="@dimen/_8dp"
+    android:background="@drawable/rectangle_shape"
+    app:layout_constraintStart_toStartOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/image_phone"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/_8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_phone_android_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/image_phone"
+        app:layout_constraintTop_toTopOf="@id/image_phone"
+        android:layout_marginStart="@dimen/_8dp"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginTop="@dimen/_18dp"
+        android:text="@string/phone"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_line"
+        android:layout_width="@dimen/_1dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_UnitPrice_text"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:textColor="#9C9595"
+        android:text="@string/unit_price"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@id/image_phone"
+        app:layout_constraintTop_toBottomOf="@id/product_name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_UnitPrice"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/unit_price"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guide_line"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/product_name" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_quantityText"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/quantity"
+        android:textColor="#9C9595"
+        app:layout_constraintStart_toEndOf="@id/image_phone"
+        app:layout_constraintTop_toBottomOf="@id/product_UnitPrice_text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_quantity"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/quantity"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@id/guide_line"
+        app:layout_constraintTop_toBottomOf="@id/product_UnitPrice" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/image_phone"
+        app:layout_constraintTop_toBottomOf="@id/product_quantityText"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#9C9595"
+        android:text="@string/amount"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/product_price"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/amount"
+        app:layout_constraintHorizontal_bias="0"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guide_line"
+        app:layout_constraintTop_toBottomOf="@id/product_quantity" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_16dp"
+    tools:context=".view.cart.DeliveryFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_selectAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/select_delivery_address"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_selectAddress"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_addAddress"
+        android:text="@string/add_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/PrimaryButton"
+        android:background="@drawable/button_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/_45dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginBottom="@dimen/_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_next"
+        style="@style/PrimaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        app:layout_constraintHorizontal_bias="1"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:text="@string/next"
+        android:layout_marginBottom="@dimen/_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_addAddress" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
