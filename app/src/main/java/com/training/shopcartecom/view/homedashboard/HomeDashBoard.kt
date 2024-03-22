@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.training.shopcartecom.R
 import com.training.shopcartecom.databinding.FragmentHomeDashBoardBinding
 import com.training.shopcartecom.view.ProfileFragment
-import com.training.shopcartecom.view.ShoppingCartFragment
+import com.training.shopcartecom.view.cart.ShoppingCartFragment
 import com.training.shopcartecom.view.category.CategoryDashboardFragment
 
 class HomeDashBoard : Fragment() {
@@ -30,15 +30,17 @@ class HomeDashBoard : Fragment() {
                 menuItem ->
             when(menuItem.itemId){
                 R.id.home -> changeHomeFragment(CategoryDashboardFragment())
-                R.id.cart -> changeHomeFragment(ProfileFragment())
-                R.id.account -> changeHomeFragment(ShoppingCartFragment())
+                R.id.cart -> changeHomeFragment(ShoppingCartFragment())
+                R.id.account -> changeHomeFragment(ProfileFragment())
             }
         }
 
         return binding.root
     }
     fun changeHomeFragment(fragment: Fragment){
-        childFragmentManager.beginTransaction().add(R.id.containerHome,fragment).commit()
+
+        requireActivity().supportFragmentManager.beginTransaction().replace(R.id.containerHome,fragment).commit()
+
     }
 
 

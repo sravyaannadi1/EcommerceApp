@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-}
+    id("kotlin-kapt")}
 
 android {
     namespace = "com.training.shopcartecom"
@@ -48,7 +48,14 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.android.volley:volley:1.2.1")
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.15")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+    val room_version="2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
 }

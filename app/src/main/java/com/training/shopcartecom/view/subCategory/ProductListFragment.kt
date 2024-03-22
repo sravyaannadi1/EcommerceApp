@@ -10,6 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.training.shopcartecom.R
 import com.training.shopcartecom.databinding.FragmentProductListBinding
 import com.training.shopcartecom.model.VolleyHandler.SubCategoryVolleyHandler
+import com.training.shopcartecom.model.data.Product
+import com.training.shopcartecom.model.data.ProductResponse
+import com.training.shopcartecom.model.databasecart.AppDatabase
+import com.training.shopcartecom.model.databasecart.CartDao
 import com.training.shopcartecom.presenter.subcategory.ProductMVP
 import com.training.shopcartecom.presenter.subcategory.ProductPresenter
 import com.training.shopcartecom.presenter.subcategory.SubCategoryMVP
@@ -20,6 +24,9 @@ class ProductListFragment : Fragment(),ProductMVP.ProductView {
     private lateinit var presenter: ProductMVP.ProductPresenter
     private lateinit var volleyHandler: SubCategoryVolleyHandler
     private lateinit var productAdapter: ProductAdapter
+    private lateinit var appDatabase: AppDatabase
+    private lateinit var cartDao: CartDao
+    private lateinit var productDetailsFragment: ProductDetailsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +45,22 @@ class ProductListFragment : Fragment(),ProductMVP.ProductView {
         super.onViewCreated(view, savedInstanceState)
         val bundle=arguments
         val subcategory_id=bundle?.getString("subcategory_id")
+        initDb()
         initPresenter()
         initViews(subcategory_id!!)
 
 
+
+    }
+
+    private fun initDb() {
+        appDatabase=AppDatabase.getAppDatabase(requireContext())
+        cartDao=appDatabase.getCartDao()
     }
 
     private fun initPresenter() {
         volleyHandler = SubCategoryVolleyHandler(requireContext())
-        presenter = ProductPresenter(volleyHandler, this)
+        presenter = ProductPresenter(volleyHandler, cartDao,this)
     }
     private fun initViews(subcategory_id: String){
         binding.productRecycler.layoutManager=LinearLayoutManager(requireContext())
@@ -54,8 +68,8 @@ class ProductListFragment : Fragment(),ProductMVP.ProductView {
 
     }
 
-    override fun setResultProduct(productList: List<ProductData>) {
-        productAdapter=ProductAdapter(productList){
+    override fun setResultProduct(productResponse: ProductResponse) {
+        productAdapter=ProductAdapter(productResponse.products){
             val bundle=Bundle()
             bundle.putString("product_id",it)
             val fragment=ProductDetailsFragment()
@@ -66,6 +80,7 @@ class ProductListFragment : Fragment(),ProductMVP.ProductView {
         productAdapter.notifyDataSetChanged()
         binding.productRecycler.adapter=productAdapter
     }
+
 
     override fun onError(message: String) {
 

@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.training.shopcartecom.databinding.ActivityMainBinding
+import com.training.shopcartecom.view.homedashboard.HomeDashBoard
 import com.training.shopcartecom.view.user.UserRegistrationFragment
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        supportFragmentManager.beginTransaction().add(R.id.container1, UserRegistrationFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container1, HomeDashBoard()).commit()
     }
     private fun initPref(){
         sharedPreferences=getSharedPreferences("Login", MODE_PRIVATE)
